@@ -1,29 +1,3 @@
-<?php
-session_start();
-require_once("class.user.php");
-$login = new USER();
-
-if($login->is_loggedin()!="")
-{
-	$login->redirect('home.php');
-}
-
-if(isset($_POST['btn-login']))
-{
-	$uname = strip_tags($_POST['txt_uname_email']);
-	$umail = strip_tags($_POST['txt_uname_email']);
-	$upass = strip_tags($_POST['txt_password']);
-		
-	if($login->doLogin($uname,$umail,$upass))
-	{
-		$login->redirect('home.php');
-	}
-	else
-	{
-		$error = "Wrong Details !";
-	}	
-}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
